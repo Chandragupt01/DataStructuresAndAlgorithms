@@ -1,0 +1,35 @@
+# Brute Force
+
+# class Solution(object):
+#     def removeDuplicates(self, nums):
+#         dic={}
+#         n=len(nums)
+#         for i in range(n):
+#             dic[nums[i]]=0
+#         j=0
+#         for key in dic:
+#             nums[j]=key
+#             j+=1
+
+#         return j
+    
+
+# Optimal
+
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n=len(nums)
+        if n==1:
+            return 1
+        i=0
+        j=i+1
+        while j<n:
+            if nums[j]!=nums[i]:
+                i=i+1
+                nums[j],nums[i]=nums[i],nums[j]
+            j+=1
+        return i+1
